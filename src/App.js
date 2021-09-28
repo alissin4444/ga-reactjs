@@ -4,26 +4,19 @@ import {
   Switch,
   Route,
   Link,
-  withRouter,
-  useLocation
+  withRouter
 } from "react-router-dom";
-
-import ReactGA from 'react-ga';
 
 import Home from './pages/Home'
 import About from './pages/About'
 import Users from './pages/Users'
 
-ReactGA.initialize('UA-208736407-1', {
-  debug: true,
-});
+import TagManager from 'react-gtm-module';
 
 function App() {
-  const location = useLocation()
-
   useEffect(() => {
-    ReactGA.pageview(location.pathname);
-  }, [location.pathname])
+    TagManager.initialize({ gtmId: 'GTM-MK5JXDS' });
+  }, []);
 
   return (
       <div>
